@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Exemple de styles pour le tableau de bord */
+body {
+    font-family: 'Nunito', sans-serif;
+}
+
+h1, h2, h3 {
+    color: #1F2937;
+}
+
+.bg-blue-500 {
+    background-color: #3B82F6;
+}
+
+.card {
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
