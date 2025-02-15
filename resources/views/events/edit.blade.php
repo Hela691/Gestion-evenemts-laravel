@@ -70,6 +70,15 @@
                 Mettre à jour l'événement
             </button>
         </form>
+
+        <div class="mt-4 text-center">
+            <a 
+                href="{{ route('events.index') }}" 
+                class="inline-block bg-gray-500 text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition duration-300"
+            >
+                Retour à la liste des événements
+            </a>
+        </div>
     </div>
 </body>
 </html>

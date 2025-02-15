@@ -16,15 +16,26 @@ class EventController extends Controller
         $this->middleware('auth'); // Ajout du middleware pour protéger les routes
     }
 
-    public function index()
-    {
-        //$events = Event::all(); // Tous les événements
-        //$userEvents = Auth::user()->events; // Les événements auxquels l'utilisateur participe
+    public function index(Request $request)
+{
+    // Si un terme de recherche existe, on applique le filtre
+    $search = $request->query('search');
 
-        //return view('events.index', compact('events', 'userEvents'));
+    if ($search) {
+        $events = Event::where('name', 'like', "%$search%")->get();
+    } else {
+        // Sinon, on récupère tous les événements
         $events = Event::all();
-        return view('events.index', compact('events'));
     }
+
+    return view('events.index', compact('events'));
+}
+
+
+
+        
+
+    
 
     public function create()
     {
@@ -128,6 +139,8 @@ public function getUserEvents(Request $request)
     // Retourne les événements sous forme de JSON
     return response()->json($userEvents);
 }
+
+
 
 
 
